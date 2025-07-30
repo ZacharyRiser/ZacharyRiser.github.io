@@ -1,0 +1,6 @@
+# Navigation Menu
+# Your navigation menu settings.
+menu:
+  Home: /
+  Archives: /archives
+  Links: /links/
