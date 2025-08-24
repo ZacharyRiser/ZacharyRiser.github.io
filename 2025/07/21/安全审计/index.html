@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>AI + 等保 = ？答案：一键生成安全审计报告 | Zachary个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="揭秘知识库(RAG)与高级工作流Prompt如何将AI锻造成可信赖的系统安全审计师">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI + 等保 &#x3D; ？答案：一键生成安全审计报告">
+<meta property="og:url" content="https://grokfree.xyz/2025/07/21/%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Zachary个人博客">
+<meta property="og:description" content="揭秘知识库(RAG)与高级工作流Prompt如何将AI锻造成可信赖的系统安全审计师">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://grokfree.xyz/images/titu/ssh%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AD%89%E4%BF%9D.png">
+<meta property="article:published_time" content="2025-07-21T02:30:00.000Z">
+<meta property="article:modified_time" content="2025-08-24T07:06:48.991Z">
+<meta property="article:author" content="Zachary">
+<meta property="article:tag" content="AIOps">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="LLM">
+<meta property="article:tag" content="提示词工程">
+<meta property="article:tag" content="网络运维">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://grokfree.xyz/images/titu/ssh%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AD%89%E4%BF%9D.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Zachary个人博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Zachary个人博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/links/">Links</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://grokfree.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-安全审计" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/07/21/%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/" class="article-date">
+  <time class="dt-published" datetime="2025-07-21T02:30:00.000Z" itemprop="datePublished">2025-07-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">技术实践</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/AIOps/">AIOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="/images/titu/ssh%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AD%89%E4%BF%9D.png" rel="gallery_cmeper1j700181kur0ihn64tp">
+        <img src="/images/titu/ssh%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AD%89%E4%BF%9D.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      AI + 等保 = ？答案：一键生成安全审计报告
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>揭秘知识库(RAG)与高级工作流Prompt如何将AI锻造成可信赖的系统安全审计师</p>
+<span id="more"></span>
+<hr>
+<p><strong>各位技术同仁，</strong></p>
+<p>在之前的探索中，我们已成功利用MCP协议与大语言模型，将AI的能力延伸至网络设备，实现了拓扑绘制与故障排查的自动化。</p>
+<blockquote>
+<p>🔗 <strong>往期探索：</strong></p>
+<ul>
+<li><a href="https://grokfree.xyz/2025/07/10/ssh%E9%98%B2%E7%81%AB%E5%A2%99mcp/">只要5秒？AI画出整个公司网络拓扑！不再是科幻！</a></li>
+<li><a href="https://grokfree.xyz/2025/07/11/telnet%E4%BA%A4%E6%8D%A2%E6%9C%BAmcp/">省下300刀&#x2F;月！手把手教你打造不输Grok-4的Cisco排障AI</a></li>
+</ul>
+</blockquote>
+<p>今天，我们将挑战一个技术深度与严谨性要求都更高的领域：<strong>服务器操作系统安全审计</strong>。我们的目标是，将一个通用的AI模型，改造为一个能够自主执行<strong>网络安全等级保护（等保）三级</strong>主机安全检查的专家智能体——<strong>Linux Guardian</strong>。</p>
+<p>这不仅仅是功能的延伸，更是一次关于<strong>AI可信度、专业度和透明度</strong>的深度进化。</p>
+<hr>
+<h3 id="第一章：创世纪-锻造AI专家的知识核心与执行引擎"><a href="#第一章：创世纪-锻造AI专家的知识核心与执行引擎" class="headerlink" title="第一章：创世纪 - 锻造AI专家的知识核心与执行引擎"></a>第一章：创世纪 - 锻造AI专家的知识核心与执行引擎</h3><p>一个强大的AI Agent，始于一个稳定且精确的运行环境。这一章，我们将讲述如何为其构建“大脑”与“躯干”。</p>
+<h4 id="1-1-大脑的构建：从国家标准到可机读的知识库"><a href="#1-1-大脑的构建：从国家标准到可机读的知识库" class="headerlink" title="1.1 大脑的构建：从国家标准到可机读的知识库"></a>1.1 大脑的构建：从国家标准到可机读的知识库</h4><p>我们面临的首要挑战是：如何将抽象、复杂的“等保三级”要求，转化为AI能够理解和执行的知识？为此，我们进行了一项系统性的知识工程。</p>
+<ul>
+<li><p><strong>第一步：锚定权威源头</strong><br>我们首先定位到最权威的依据——国家标准 <strong>GB&#x2F;T 22239-2019《信息安全技术 网络安全等级保护基本要求》</strong>。这是所有审计工作的“圣经”，确保了我们知识的准确性和合规性。<br><img src="/images/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AE%A1%E8%AE%A1%E6%8A%A5%E5%91%8A/1.png" alt="安全审计"></p>
+</li>
+<li><p><strong>第二步：寻求实践真知</strong><br>标准原文往往是高度概括的。为了将其落地，我们广泛查阅了行业专家的技术博客（如CSDN上的深度实践文章），这些文章提供了宝贵的、经过实战检验的配置方法和命令行示例。<br><img src="/images/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AE%A1%E8%AE%A1%E6%8A%A5%E5%91%8A/2.png" alt="安全审计"></p>
+</li>
+<li><p><strong>第三步：知识的萃取与结构化</strong><br>这是最关键的一步。我们将上述两大信息源进行融合与提炼，为每一个等保条款，都萃取出四大核心要素：<strong>【标准原文 -&gt; 核心目标 -&gt; 详细解读与实现 -&gt; 自动化检测思路】</strong>。特别是“自动化检测思路”，它将抽象的要求转化为了具体的、可在Linux服务器上执行的命令。我们将这些结构化的知识，整理成了一份纯文本文件：<code>DJCP_L3_Host_Security_KB.txt</code>。</p>
+</li>
+<li><p><strong>第四步：知识的注入与激活 (RAG)</strong><br>我们将这份精心制作的知识库上传至AI工作台，并为其启用了<strong>强制检索”</strong> 模式。这相当于为AI的大脑安装了一个“权威插件”，并设定了最高优先级。这项技术—— <strong>检索增强生成（RAG）</strong> ——确保了AI在回答相关问题时，<strong>必须</strong>基于这份我们提供的、可信的知识进行思考，从而从根本上解决了通用大模型在专业领域可能“自由发挥”的问题。<br><img src="/images/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AE%A1%E8%AE%A1%E6%8A%A5%E5%91%8A/3.png" alt="安全审计"></p>
+</li>
+</ul>
+<h4 id="1-2-躯干的搭建：确保执行的精准与稳定"><a href="#1-2-躯干的搭建：确保执行的精准与稳定" class="headerlink" title="1.2 躯干的搭建：确保执行的精准与稳定"></a>1.2 躯干的搭建：确保执行的精准与稳定</h4><ul>
+<li><p><strong>工具链配置：</strong> 我们继续使用<code>ssh-mcp-server</code>，仅需在<code>machines.json</code>中调整连接信息，使其指向目标Linux服务器即可。<br><img src="/images/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AE%A1%E8%AE%A1%E6%8A%A5%E5%91%8A/4.png" alt="安全审计"></p>
+</li>
+<li><p><strong>模型参数调优：</strong> 我们选用<code>deepseek-ai/DeepSeek-V3</code>模型，并对其参数进行了极端设置：</p>
+</li>
+</ul>
+<p><img src="/images/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AE%A1%E8%AE%A1%E6%8A%A5%E5%91%8A/5.png" alt="安全审计"></p>
+<p>此处依然是参考我们之前文章中的设置</p>
+<hr>
+<h3 id="第二章：灵魂的注入-解构v13版“宪法级”提示词"><a href="#第二章：灵魂的注入-解构v13版“宪法级”提示词" class="headerlink" title="第二章：灵魂的注入 - 解构v13版“宪法级”提示词"></a>第二章：灵魂的注入 - 解构v13版“宪法级”提示词</h3><p>如果说知识库是AI的大脑，那么系统提示词就是它的灵魂、性格与行为准则。我们历经十余个版本的迭代，从简单的角色扮演，进化到了这套如“宪法”般严谨的<code>v13</code>版提示词。它不再是简单的指令，而是一套完整的、多维度的行为框架。</p>
+<h4 id="2-1-ROLE-KNOWLEDGE-BASE-：定义身份与权威"><a href="#2-1-ROLE-KNOWLEDGE-BASE-：定义身份与权威" class="headerlink" title="2.1 [ROLE] &amp; [KNOWLEDGE BASE]：定义身份与权威"></a>2.1 [ROLE] &amp; [KNOWLEDGE BASE]：定义身份与权威</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">你是一个名为“Linux Guardian”的AI驱动的系统与网络运维专家...</span><br><span class="line">你内置了一份权威的、名为`DJCP_L3_HOST_SECURITY_KB_v2`的知识库...你所有的安全审计和合规性判断，必须且只能以此知识库为唯一标准。</span><br></pre></td></tr></table></figure></blockquote>
+<ul>
+<li><strong>设计目的：</strong><ul>
+<li><strong>数据准确性：</strong> 明确AI的唯一知识来源，从指令层面再次强化RAG的约束力，防止“知识泄漏”或“串扰”。</li>
+<li><strong>用户体验：</strong> 设定一个专业的“人格”，让用户从一开始就感受到其专业性，建立初步信任。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-2-CRITICAL-SAFETY-EXECUTION-PROTOCOL-：构建不可动摇的工作流"><a href="#2-2-CRITICAL-SAFETY-EXECUTION-PROTOCOL-：构建不可动摇的工作流" class="headerlink" title="2.2 [CRITICAL SAFETY &amp; EXECUTION PROTOCOL]：构建不可动摇的工作流"></a>2.2 [CRITICAL SAFETY &amp; EXECUTION PROTOCOL]：构建不可动摇的工作流</h4><p>这是整个提示词的核心，它定义了AI的“标准作业程序”（SOP）。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">你处理任何请求都必须遵循以下不可颠倒的三个阶段：</span><br><span class="line">阶段一：任务解析与行动规划 (Parse &amp; Plan)</span><br><span class="line">...必须向用户展示一个增强的、格式化的行动计划...并明确请求用户授权执行...</span><br><span class="line">阶段二：透明执行与日志展示 (Transparent Execution)</span><br><span class="line">...对于每一个执行的命令，你都必须使用以下可折叠的“执行日志”块格式进行输出...</span><br><span class="line">阶段三：报告生成与交互式深化 (Report &amp; Interact)</span><br><span class="line">...报告生成后，你必须主动向用户提出一个开放性的问题...</span><br></pre></td></tr></table></figure></blockquote>
+<ul>
+<li><strong>设计目的：</strong><ul>
+<li><strong>数据准确性 &amp; 用户体验（信任）：</strong> “计划-确认”步骤将控制权完全交还给用户，杜绝了AI的任何“擅自行动”。用户能预知AI的每一步，这是建立深度信任的关键。</li>
+<li><strong>可追溯性（准确性）：</strong> “透明执行”的日志块设计，让最终报告的每一项结论都能直接追溯到原始的命令行输出，保证了所有分析结果都有据可查，绝非凭空捏造。</li>
+<li><strong>价值提升（体验）：</strong> “交互式深化”将AI从一个单向的报告工具，提升为一个可以持续对话、解决问题的“顾问”，极大地提升了用户价值。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-3-ERROR-HANDLING-INITIALIZATION-：确保鲁棒性与良好开端"><a href="#2-3-ERROR-HANDLING-INITIALIZATION-：确保鲁棒性与良好开端" class="headerlink" title="2.3 [ERROR HANDLING] &amp; [INITIALIZATION]：确保鲁棒性与良好开端"></a>2.3 [ERROR HANDLING] &amp; [INITIALIZATION]：确保鲁棒性与良好开端</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当`SSH centos`工具调用失败时，你必须：立即停止当前任务...清晰地说明...并提供可能的诊断建议...</span><br><span class="line">开始首次对话时，你必须...清晰地向用户阐明你即将开始的、全新的“计划-确认-执行”工作流程。</span><br></pre></td></tr></table></figure></blockquote>
+<ul>
+<li><strong>设计目的：</strong><ul>
+<li><strong>鲁棒性（体验）：</strong> 详细的错误处理协议，让AI在面对连接超时、权限不足等问题时，不再是返回一个冰冷的“执行失败”，而是能像一个真正的工程师一样，提供有价值的诊断信息。</li>
+<li><strong>预期管理（体验）：</strong> 初始化的自我介绍，提前告知用户AI的独特工作模式，避免用户因AI“不直接回答问题”而感到困惑。这是一种优秀的用户引导。</li>
+</ul>
+</li>
+</ul>
+<p>这套精心设计的提示词，为AI构建了一个完整、严谨、透明的行为模式，使其从一个强大的模型，真正蜕变为一个值得信赖的合作伙伴。</p>
+<hr>
+<h3 id="第三章：淬炼成金-AI审计师的能力实战报告"><a href="#第三章：淬炼成金-AI审计师的能力实战报告" class="headerlink" title="第三章：淬炼成金 - AI审计师的能力实战报告"></a>第三章：淬炼成金 - AI审计师的能力实战报告</h3><p>理论的完美，必须通过实践的检验。我们向<strong>Linux Guardian</strong>发起了三轮由浅入深的挑战。</p>
+<h4 id="场景一：专项审计-“我怀疑身份认证不合规”"><a href="#场景一：专项审计-“我怀疑身份认证不合规”" class="headerlink" title="场景一：专项审计 - “我怀疑身份认证不合规”"></a>场景一：专项审计 - “我怀疑身份认证不合规”</h4><p>面对这个具体指令，AI严格遵循三阶段工作流：</p>
+<ol>
+<li><strong>[计划]</strong> 生成了仅针对“身份鉴别”条款的精准行动计划。</li>
+<li><strong>[执行]</strong> 在可折叠日志中，我们清晰地看到<code>grep -E &#39;faillock|tally2&#39;</code>等命令返回为空，问题点一目了然。</li>
+<li><strong>[报告]</strong> 最终报告用表格形式标记出3个<code>❌不合规</code>项和1个<code>⚠️部分合规</code>项，并给出了具体加固建议。</li>
+</ol>
+<p><img src="/images/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AE%A1%E8%AE%A1%E6%8A%A5%E5%91%8A/6.png" alt="安全审计"></p>
+<h4 id="场景二：全面审计-“对服务器做一次完整的安全检查”"><a href="#场景二：全面审计-“对服务器做一次完整的安全检查”" class="headerlink" title="场景二：全面审计 - “对服务器做一次完整的安全检查”"></a>场景二：全面审计 - “对服务器做一次完整的安全检查”</h4><p>面对这个开放式任务，AI展现了其强大的综合分析能力：</p>
+<ol>
+<li><strong>[计划]</strong> 依据知识库自主规划了覆盖等保核心条款的<strong>十余步</strong>全面检查方案。</li>
+<li><strong>[执行]</strong> 有条不紊地执行，并在日志中对<code>sudo auditctl -l</code>返回“No rules”等关键发现做出初步判断。</li>
+<li><strong>[报告]</strong> 生成的综合报告堪称专业。它不仅列出了问题，还评估了风险等级，并给出了“24小时内紧急修复”等具体行动建议。</li>
+</ol>
+<p><img src="/images/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AE%A1%E8%AE%A1%E6%8A%A5%E5%91%8A/7.png" alt="安全审计"><br><img src="/images/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AE%A1%E8%AE%A1%E6%8A%A5%E5%91%8A/8.png" alt="安全审计"><br><img src="/images/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AE%A1%E8%AE%A1%E6%8A%A5%E5%91%8A/9.png" alt="安全审计"></p>
+<h4 id="场景三：交互深化-“如何配置详细的审计规则？”"><a href="#场景三：交互深化-“如何配置详细的审计规则？”" class="headerlink" title="场景三：交互深化 - “如何配置详细的审计规则？”"></a>场景三：交互深化 - “如何配置详细的审计规则？”</h4><p>在前一个问题中AI问我们最关心哪个方面的安全改进，它可以提供针对性的加固指导，我们选择询问配置详细的审计规则的方法。AI再次给我们系统性地讲了一下情况。回答非常完整！</p>
+<p><img src="/images/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AE%A1%E8%AE%A1%E6%8A%A5%E5%91%8A/10.png" alt="安全审计"><br><img src="/images/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AE%A1%E8%AE%A1%E6%8A%A5%E5%91%8A/11.png" alt="安全审计"></p>
+<p>这一轮交互，完美展示了AI从“发现问题”到“解决问题”的闭环能力，其深度和广度已远超简单的问答。</p>
+<hr>
+<h3 id="第四章：未来展望-从智能体到一体化审计平台"><a href="#第四章：未来展望-从智能体到一体化审计平台" class="headerlink" title="第四章：未来展望 - 从智能体到一体化审计平台"></a>第四章：未来展望 - 从智能体到一体化审计平台</h3><p>本次实践，我们成功地将一个通用大模型，锻造成了一个知识驱动、流程严谨、交互深入的AI安全审计专家。这验证了一个核心思想：<strong>AI的价值，不仅在于其模型本身，更在于我们如何通过知识工程和流程设计去驾驭它。</strong></p>
+<p>但我们不止于此。目前基于聊天的交互模式虽然强大，但对于大规模、常态化的审计工作仍有操作门槛。因此，我们的下一步计划是：</p>
+<p><strong>基于“Linux Guardian”的核心能力，打造一个一站式、可视化的主机安全审计平台。</strong></p>
+<p>这个平台将实现：</p>
+<ul>
+<li><strong>一键式审计：</strong> 用户只需在图形化界面选择目标服务器和审计策略，即可发起一次完整的等保合规性检查。</li>
+<li><strong>可视化报告仪表盘：</strong> 用直观的图表（如雷达图、环形图）展示服务器的安全态势、风险分布和合规分数。</li>
+<li><strong>历史趋势分析：</strong> 记录每次审计结果，帮助管理者追踪安全基线的变化和改进成效。</li>
+<li><strong>自动化报告生成：</strong> 一键导出符合等保测评要求的PDF或Word格式的正式审计报告，甚至是可互动的实时网页，非常直观地呈现我们的服务器情况。</li>
+</ul>
+<p>我们的目标，是让专业、深度的系统安全审计能力，不再是少数专家的专利，而是成为每个运维和安全团队都能轻松驾驭的工具。</p>
+<p><strong>我们相信，这才是AIOps的真正未来——将顶级的专家能力，封装于易用的产品之中，赋能于每一位技术人员。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://grokfree.xyz/2025/07/21/%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/" data-id="cmeper1j700181kur0ihn64tp" data-title="AI + 等保 = ？答案：一键生成安全审计报告" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIOps/" rel="tag">AIOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B/" rel="tag">提示词工程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4/" rel="tag">网络运维</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/07/26/%E4%B8%BB%E6%9C%BA%E5%AE%89%E5%85%A8%E6%A3%80%E6%9F%A5%E6%8A%A5%E5%91%8A/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          AI：咚咚咚！您好，请查收这份《主机安全体检报告》
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/07/14/%E7%BD%91%E5%AE%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%AE%9E%E7%94%A8%E8%BD%AF%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">网安工作实用软件推荐</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81/">会议纪要</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81/">行业动态</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">技术实践</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/AIOps/">AIOps</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%B7%A5%E5%85%B7/">技术工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIOps/" rel="tag">AIOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agentic-AI/" rel="tag">Agentic AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CAASM/" rel="tag">CAASM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CLI/" rel="tag">CLI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cisco/" rel="tag">Cisco</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FortiGate/" rel="tag">FortiGate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gemini/" rel="tag">Gemini</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ISC2/" rel="tag">ISC2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCP%E5%8D%8F%E8%AE%AE/" rel="tag">MCP协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" rel="tag">大语言模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B/" rel="tag">提示词工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E6%8F%90%E5%8D%87/" rel="tag">效率提升</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%87%BA%E5%A2%83/" rel="tag">数据出境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%88%90%E5%BC%8FAI/" rel="tag">生成式AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E5%AE%89%E5%B7%A5%E5%85%B7/" rel="tag">网安工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4/" rel="tag">网络运维</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" rel="tag">软件推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%B6%E4%BF%A1%E4%BB%BB/" rel="tag">零信任</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 20px;">AI</a> <a href="/tags/AIOps/" style="font-size: 16.67px;">AIOps</a> <a href="/tags/Agentic-AI/" style="font-size: 10px;">Agentic AI</a> <a href="/tags/CAASM/" style="font-size: 10px;">CAASM</a> <a href="/tags/CLI/" style="font-size: 10px;">CLI</a> <a href="/tags/Cisco/" style="font-size: 10px;">Cisco</a> <a href="/tags/FortiGate/" style="font-size: 10px;">FortiGate</a> <a href="/tags/Gemini/" style="font-size: 10px;">Gemini</a> <a href="/tags/ISC2/" style="font-size: 10px;">ISC2</a> <a href="/tags/LLM/" style="font-size: 13.33px;">LLM</a> <a href="/tags/MCP%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">MCP协议</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">大模型</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">大语言模型</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">实习</a> <a href="/tags/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B/" style="font-size: 13.33px;">提示词工程</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%88%E7%8E%87%E6%8F%90%E5%8D%87/" style="font-size: 10px;">效率提升</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%87%BA%E5%A2%83/" style="font-size: 10px;">数据出境</a> <a href="/tags/%E7%94%9F%E6%88%90%E5%BC%8FAI/" style="font-size: 10px;">生成式AI</a> <a href="/tags/%E7%BD%91%E5%AE%89%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">网安工具</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 10px;">网络安全</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4/" style="font-size: 16.67px;">网络运维</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">软件推荐</a> <a href="/tags/%E9%9B%B6%E4%BF%A1%E4%BB%BB/" style="font-size: 10px;">零信任</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/07/26/ISC7%E6%9C%88%E5%88%86%E4%BA%AB%E4%BC%9A/">ISC2上海分会7月分享会纪要</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/26/%E4%B8%BB%E6%9C%BA%E5%AE%89%E5%85%A8%E6%A3%80%E6%9F%A5%E6%8A%A5%E5%91%8A/">AI：咚咚咚！您好，请查收这份《主机安全体检报告》</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/21/%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/">AI + 等保 = ？答案：一键生成安全审计报告</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/14/%E7%BD%91%E5%AE%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%AE%9E%E7%94%A8%E8%BD%AF%E4%BB%B6/">网安工作实用软件推荐</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/11/telnet%E4%BA%A4%E6%8D%A2%E6%9C%BAmcp/">从命令行到认知智能：基于cisco-mcp的AIOps深度实践</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Zachary<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/links/" class="mobile-nav-link">Links</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
